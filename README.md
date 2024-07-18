@@ -251,33 +251,33 @@ This dual view provides a theoretical underpinning for why large language models
 
 In-Context Learning offers several significant advantages over traditional fine-tuning approaches:
 
-    1. Flexibility:
-    - Models can adapt to a wide range of new tasks without requiring task-specific training.
-    - This allows for rapid prototyping and experimentation with different tasks.
+1. Flexibility:
+- Models can adapt to a wide range of new tasks without requiring task-specific training.
+- This allows for rapid prototyping and experimentation with different tasks.
 
-    2. Efficiency:
-    - No additional training or fine-tuning is required, saving computational resources and time.
-    - The model can be applied to new tasks immediately, without the need for separate models for each task.
+2. Efficiency:
+- No additional training or fine-tuning is required, saving computational resources and time.
+- The model can be applied to new tasks immediately, without the need for separate models for each task.
 
-    3. Quick Adaptability:
-    - ICL allows models to adjust to specific requirements or variations of a task in real-time.
-    - This is particularly useful for handling edge cases or unique user requests.
+3. Quick Adaptability:
+- ICL allows models to adjust to specific requirements or variations of a task in real-time.
+- This is particularly useful for handling edge cases or unique user requests.
 
-    4. Preservation of General Knowledge:
-    - Unlike fine-tuning, which can lead to catastrophic forgetting, ICL maintains the model's broad knowledge base.
-    - The model can leverage its general knowledge while adapting to specific tasks.
+4. Preservation of General Knowledge:
+- Unlike fine-tuning, which can lead to catastrophic forgetting, ICL maintains the model's broad knowledge base.
+- The model can leverage its general knowledge while adapting to specific tasks.
 
-    5. Low Resource Requirement:
-    - ICL can be effective even with a small number of examples, making it useful in scenarios where large task-specific datasets are not available.
+5. Low Resource Requirement:
+- ICL can be effective even with a small number of examples, making it useful in scenarios where large task-specific datasets are not available.
 
-    6. Dynamic Task Switching:
-    - Models can switch between different tasks within the same conversation or session, simply by changing the provided context.
+6. Dynamic Task Switching:
+- Models can switch between different tasks within the same conversation or session, simply by changing the provided context.
 
-    7. Reduced Risk of Overfitting:
-    - Since the model parameters are not updated, there's less risk of overfitting to a specific task or dataset.
+7. Reduced Risk of Overfitting:
+- Since the model parameters are not updated, there's less risk of overfitting to a specific task or dataset.
 
-    8. Ease of Use:
-    - ICL can be implemented through prompt engineering, making it accessible to users without deep machine learning expertise.
+8. Ease of Use:
+- ICL can be implemented through prompt engineering, making it accessible to users without deep machine learning expertise.
 
 These advantages make In-Context Learning a powerful and versatile approach for deploying large language models across a variety of applications and use cases.
 
@@ -286,41 +286,41 @@ These advantages make In-Context Learning a powerful and versatile approach for 
 
 While In-Context Learning offers many advantages, it also comes with several challenges and limitations that are important to consider:
 
-    1. Quality of Demonstration Examples:
-    - The performance of ICL heavily depends on the quality and relevance of the provided examples.
-    - Poorly chosen examples can lead to suboptimal or incorrect outputs.
+1. Quality of Demonstration Examples:
+- The performance of ICL heavily depends on the quality and relevance of the provided examples.
+- Poorly chosen examples can lead to suboptimal or incorrect outputs.
 
-    2. Context Length Limitations:
-    - Most models have a maximum context length, limiting the number of examples that can be included.
-    - This can be problematic for complex tasks that require many examples for accurate learning.
+2. Context Length Limitations:
+- Most models have a maximum context length, limiting the number of examples that can be included.
+- This can be problematic for complex tasks that require many examples for accurate learning.
 
-    3. Inconsistency in Performance:
-    - ICL performance can be less consistent compared to fine-tuned models, especially for edge cases.
-    - Results may vary depending on the specific examples provided and their order.
+3. Inconsistency in Performance:
+- ICL performance can be less consistent compared to fine-tuned models, especially for edge cases.
+- Results may vary depending on the specific examples provided and their order.
 
-    4. Model Size Dependency:
-    - The effectiveness of ICL generally increases with model size.
-    - Smaller models may not perform ICL as effectively, limiting its applicability in resource-constrained environments.
+4. Model Size Dependency:
+- The effectiveness of ICL generally increases with model size.
+- Smaller models may not perform ICL as effectively, limiting its applicability in resource-constrained environments.
 
-    5. Task Complexity:
-    - ICL may struggle with tasks that require extensive reasoning or access to knowledge not covered in the training data.
-    - Complex multi-step tasks can be challenging to demonstrate effectively within the context window.
+5. Task Complexity:
+- ICL may struggle with tasks that require extensive reasoning or access to knowledge not covered in the training data.
+- Complex multi-step tasks can be challenging to demonstrate effectively within the context window.
 
-    6. Lack of Long-Term Learning:
-    - Unlike fine-tuning, ICL doesn't allow the model to permanently learn from new experiences.
-    - Each new interaction starts from the same baseline knowledge.
+6. Lack of Long-Term Learning:
+- Unlike fine-tuning, ICL doesn't allow the model to permanently learn from new experiences.
+- Each new interaction starts from the same baseline knowledge.
 
-    7. Potential for Misunderstanding:
-    - The model might misinterpret the task based on the provided examples, leading to incorrect generalizations.
+7. Potential for Misunderstanding:
+- The model might misinterpret the task based on the provided examples, leading to incorrect generalizations.
 
-    8. Computational Overhead:
-    - While ICL doesn't require retraining, it does increase the input size and thus the computational cost at inference time.
+8. Computational Overhead:
+- While ICL doesn't require retraining, it does increase the input size and thus the computational cost at inference time.
 
-    9. Privacy Concerns:
-    - Sensitive information in demonstration examples could potentially be reflected in the model's outputs.
+9. Privacy Concerns:
+- Sensitive information in demonstration examples could potentially be reflected in the model's outputs.
 
-    10. Need for Further Research:
-        - The underlying mechanisms of ICL are not fully understood, and more research is needed to improve its reliability and effectiveness.
+10. Need for Further Research:
+    - The underlying mechanisms of ICL are not fully understood, and more research is needed to improve its reliability and effectiveness.
 
 These challenges highlight the importance of careful implementation and consideration when using In-Context Learning, as well as the need for continued research and development in this field.
 

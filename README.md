@@ -301,6 +301,21 @@ The Dual View posits that in-context learning in GPT models can be understood as
 
 For a linear layer: F(x) = (W₀ + ΔW)x
 
+
+Δ𝑊= ∑_𝑖▒〖𝑒_𝑖⊗𝑥_𝑖^′ " " 〗
+
+Dual Form of Attention and Linear Layers:
+
+The paper starts by showing the dual form between linear layers optimized by gradient descent and linear attention.
+For a linear layer: F(x) = (W₀ + ΔW)x
+Where W₀ is the initial weight matrix and ΔW is the update.
+ΔW is computed as: ΔW = Σᵢ eᵢ ⊗ x'ᵢ
+Where eᵢ are error signals and x'ᵢ are historic inputs.
+This can be rewritten as:
+F(x) = W₀x + LinearAttn(E, X', x)
+This shows the equivalence between gradient updates and a form of attention.
+
+
 ----
 
 7. Advantages of In-Context Learning

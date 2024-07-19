@@ -183,6 +183,13 @@ The performance of In-Context Learning varies depending on several factors, incl
 
 It's important to note that while ICL has shown impressive results across various tasks, its performance can still be unpredictable and may not always match that of models specifically fine-tuned for a task.
 
+![alt text](image-1.png)
+
+
+Source: [Rethinking the Role of Demonstrations: What Makes In-Context Learning Work?](https://arxiv.org/abs/2202.12837) 
+
+
+
 
 5. Meta-Optimization
 
@@ -218,6 +225,8 @@ This meta-optimization perspective helps explain how large language models can a
 6. Dual View Concept
 
 The Dual View Concept provides a theoretical framework for understanding In-Context Learning by drawing parallels between ICL and traditional gradient descent optimization. This concept involves several key components:
+
+![alt text](image-2.png)
 
 1. Comparison of ICL and Fine-tuning:
    - Fine-tuning: Explicitly updates model parameters through backpropagation.

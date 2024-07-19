@@ -147,9 +147,11 @@ In-Context Learning can be categorized into three main types based on the number
 
 Each type has its own strengths and use cases, with few-shot learning often providing the best balance between context length and task performance for many applications.
 
+![](image.png)
+
+Source: [Language Models are Few-Shot Learners](https://arxiv.org/abs/2005.14165) 
 
 
-Certainly. Let's move on to the next chapter:
 
 4. Performance
 

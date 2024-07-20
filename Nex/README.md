@@ -223,27 +223,31 @@ Recent research proposes a novel "Dual View" to explain how ICL works:
 
 
 ----
-# Dual Form of Transformer Attention and Gradient Descent
+## Dual Form of Transformer Attention and Gradient Descent
 
 The researchers show that Transformer attention has a dual form to gradient descent. Let's break this down mathematically:
 
-## Linear Layer Optimized by Gradient Descent
-
 For a linear layer optimized by gradient descent:
 
-\[ F(x) = (W_0 + \Delta W)x \]
+```
+F(x) = (W0 + ΔW)x
+```
 
-Where \( W_0 \) is the initial weight matrix, \( \Delta W \) is the update matrix, and \( \mathbf{x} \) is the input.
+Where $W_0$ is the initial weight matrix, $\Delta W$ is the update matrix, and $\mathbf{x}$ is the input.
 
-The update matrix \( \Delta W \) is computed as:
+The update matrix $\Delta W$ is computed as:
 
-\[ \Delta W = \sum_i \mathbf{e}_i \otimes \mathbf{x}'_i \]
+```
+ΔW = ∑i ei ⊗ xi'
+```
 
-Where \( \mathbf{e}_i \) are error signals and \( \mathbf{x}'_i \) are historic input representations.
+Where $\mathbf{e}_i$ are error signals and $\mathbf{x}'_i$ are historic input representations.
 
 Combining these equations, we get:
 
-\[ F(x) = W_0 x + \sum_i \mathbf{e}_i (\mathbf{x}'_i x) = W_0 x + \text{LinearAttn}(E, X', x) \]
+```
+F(x) = W0x + ∑i ei(xi'x) = W0x + LinearAttn(E, X', x)
+```
 
 This shows the dual form between linear layers optimized by gradient descent and linear attention.
 
@@ -251,21 +255,27 @@ This shows the dual form between linear layers optimized by gradient descent and
 
 For in-context learning (ICL), the attention in a Transformer can be approximated as:
 
-\[ F_{\text{ICL}}(q) \approx W_V [X'; X](W_K [X'; X])^T q \]
+```
+FICL(q) ≈ WV[X';X](WK[X';X])Tq
+```
 
-Where \( W_V \) and \( W_K \) are projection matrices, \( X' \) represents demonstration tokens, and \( X \) represents query tokens.
+Where $W_V$ and $W_K$ are projection matrices, $X'$ represents demonstration tokens, and $X$ represents query tokens.
 
 This can be rewritten as:
 
-\[ F_{\text{ICL}}(q) = W_{\text{ZSL}} q + \sum_i ((W_V \mathbf{x}'_i) \otimes (W_K \mathbf{x}'_i)) q \]
+```
+FICL(q) = WZSLq + ∑i ((WVxi') ⊗ (WKxi'))q
+```
 
-Where \( W_{\text{ZSL}} = W_V X (W_K X)^T \) represents the zero-shot learning parameters.
+Where $W_{\text{ZSL}} = W_VX(W_KX)^T$ represents the zero-shot learning parameters.
 
 ## Meta-Gradients in In-Context Learning
 
-The researchers interpret \( W_V X' \) as meta-gradients. These meta-gradients are used to compute the update matrix \( \Delta W_{\text{ICL}} \):
+The researchers interpret $W_V X'$ as meta-gradients. These meta-gradients are used to compute the update matrix $\Delta W_{\text{ICL}}$:
 
-\[ \Delta W_{\text{ICL}} = \sum_i ((W_V \mathbf{x}'_i) \otimes (W_K \mathbf{x}'_i)) \]
+```
+ΔWICL = ∑i ((WVxi') ⊗ (WKxi'))
+```
 
 This update is applied to the original model parameters through attention, effectively performing implicit fine-tuning.
 
@@ -273,11 +283,11 @@ This update is applied to the original model parameters through attention, effec
 
 Inspired by gradient descent with momentum, the researchers propose a momentum-based attention mechanism:
 
-\[ \text{MoAttn}(V, K, q_t) = \text{Attn}(V, K, q_t) + \sum_{i=1}^{t-1} \eta^{t-i} \mathbf{v}_i \]
+```
+MoAttn(V, K, qt) = Attn(V, K, qt) + ∑i=1t-1 ηt-ivi
+```
 
-Where \( \eta \) is a scalar between 0 and 1, and \( \mathbf{v}_i \) are attention value vectors.
-
-## Conclusion
+Where $\eta$ is a scalar between 0 and 1, and $\mathbf{v}_i$ are attention value vectors.
 
 These mathematical formulations demonstrate how Transformer attention can be viewed as a form of gradient descent, and how in-context learning can be understood as implicit fine-tuning through the lens of meta-optimization. The momentum-based attention further extends this analogy, showing how optimization techniques can be applied to improve attention mechanisms.
 ----

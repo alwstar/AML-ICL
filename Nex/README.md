@@ -3,6 +3,8 @@
 
 ## Introduction
 
+![alt text](Intro.webp)
+
 Imagine you're a chef who has been trained in various cooking techniques and recipes from around the world. One day, a customer comes in and asks for a dish you've never made before. Instead of going back to culinary school or spending weeks practicing this new recipe, you're handed a few example dishes with their recipes right there in the kitchen.
 
 You quickly look over these examples, noticing:

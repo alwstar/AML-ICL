@@ -145,6 +145,22 @@ Few-shot learning often provides the best balance between context length and tas
 
 ![Performance Comparison](image-1.png)
 
+This observation about In-Context Learning (ICL) is insightful and supported by the data shown in the image. Let's break down why this conclusion is valid:
+
+1. Consistent improvement with demos: Across almost all models and tasks (both classification and multi-choice), providing demonstrations (demos) improves performance compared to "No Demos", regardless of whether the labels are gold (correct) or random.
+
+2. Similar performance with gold and random labels: In many cases, especially for more advanced models like GPT-3, the performance with random labels is very close to the performance with gold labels. This suggests that the model is learning the task structure rather than memorizing specific label associations.
+
+3. Task learning, not answer copying: If the model were simply copying answers from the demonstrations, we would expect to see poor performance with random labels. Instead, the model often performs well even with random labels, indicating it's learning how to approach the task rather than just mimicking the given answers.
+
+4. Consistent across model types: This pattern is observed across different model architectures (GPT, MetaICL, fairseq), suggesting it's a general property of ICL rather than specific to one model type.
+
+5. Both direct and channel methods show this trend: The effect is present in both direct prompting and channel (indirect) prompting methods, further supporting its generality.
+
+This phenomenon demonstrates the power and flexibility of ICL. It shows that large language models can quickly adapt to the structure and requirements of a task, even when given noisy or incorrect example labels. The models appear to be extracting the underlying task pattern rather than simply memorizing input-output pairs.
+
+This ability to generalize from the task structure, rather than specific examples, is a key strength of ICL and contributes to its effectiveness in few-shot learning scenarios. It also highlights the importance of providing task-relevant demonstrations, even if the specific answers in those demonstrations aren't perfectly accurate.
+
 The performance of In-Context Learning, much like our chef's culinary creations, varies depending on several factors. Let's dive into the key ingredients that affect ICL's performance:
 
 ### 1. Comparing Learning Types

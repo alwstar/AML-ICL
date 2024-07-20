@@ -137,15 +137,19 @@ Each type has its own strengths and use cases, much like different levels of rec
 
 Few-shot learning often provides the best balance between context length and task performance for many applications, like giving our chef just enough examples to master a new cuisine.
 
+![alt text](image.png)
+
 ![Types of In-Context Learning](image.png)
 
-*Source: [Language Models are Few-Shot Learners](https://arxiv.org/abs/2005.14165)*
+*Reference: [Language Models are Few-Shot Learners](https://arxiv.org/abs/2005.14165)*
 
-## Performance: Tasting the AI-Cooked Dishes
+## Performance:
+
+![Performance Comparison](image-1.png)
 
 The performance of In-Context Learning, much like our chef's culinary creations, varies depending on several factors. Let's dive into the key ingredients that affect ICL's performance:
 
-### 1. Comparing Learning Types: From Quick Bites to Full Courses
+### 1. Comparing Learning Types
 
 - **The Trend**: Generally, few-shot learning outperforms one-shot learning, which in turn outperforms zero-shot learning.
 - **When It Matters**: This trend is particularly noticeable for complex tasks or those requiring specific formatting or style.
@@ -154,7 +158,7 @@ The performance of In-Context Learning, much like our chef's culinary creations,
 ### 2. Model Size: Kitchen Equipment Matters
 
 - **Bigger is Better**: Larger models tend to perform better at ICL tasks.
-- **Narrowing Gaps**: As model size increases, the performance difference between zero-shot, one-shot, and few-shot learning often shrinks.
+- **Narrowing Gaps**: As model size increases, the performance difference between zero-shot, one-shot, and few-shot learning often shrinks. ICL effectiveness relies on the model's vast pre-trained knowledge.
 - **Chef's Perspective**: It's like having a more experienced chef who can adapt quickly, regardless of how many example dishes they're shown.
 
 ### 3. Task Complexity: From Sandwiches to Soufflés
@@ -185,11 +189,7 @@ The performance of In-Context Learning, much like our chef's culinary creations,
 
 While ICL has shown impressive results across various tasks, its performance can be unpredictable. It may not always match models specifically fine-tuned for a task, much like how a versatile chef might not always outperform a specialist in their signature dish.
 
-![Performance Comparison](image-1.png)
-
-*Source: [Rethinking the Role of Demonstrations: What Makes In-Context Learning Work?](https://arxiv.org/abs/2202.12837)*
-
-
+*Reference: [Rethinking the Role of Demonstrations: What Makes In-Context Learning Work?](https://arxiv.org/abs/2202.12837)*
 
 # Understanding In-Context Learning: The Dual View Approach
 
@@ -200,6 +200,8 @@ In-context learning (ICL) is a remarkable ability of large language models like 
 ## The Dual View: A New Perspective on ICL
 
 Recent research proposes a novel "Dual View" to explain how ICL works:
+
+*Reference: [Why Can GPT Learn In-Context? Language Models Implicitly Perform Gradient Descent as Meta-Optimizers](https://arxiv.org/abs/2202.12837)*
 
 1. **ICL as Meta-Optimization**: The paper suggests viewing ICL as a form of implicit optimization or "meta-optimization".
 
@@ -218,6 +220,31 @@ Recent research proposes a novel "Dual View" to explain how ICL works:
 5. **Implicit Finetuning**: This perspective frames ICL as a form of dynamic, implicit finetuning during inference.
 
 ## Mathematical Intuition
+
+
+----
+
+The researchers show that Transformer attention has a dual form to gradient descent. Let's break this down mathematically: For a linear layer optimized by gradient descent: F(x)=(W0+ΔW)xF(x)=(W0​+ΔW)x Where $W_0$ is the initial weight matrix, $\Delta W$ is the update matrix, and $\mathbf{x}$ is the input. The update matrix $\Delta W$ is computed as: ΔW=∑iei⊗xi′ΔW=∑i​ei​⊗xi′​ Where $\mathbf{e}_i$ are error signals and $\mathbf{x}'_i$ are historic input representations. Combining these equations, we get: F(x)=W0x+∑iei(xi′x)=W0x+LinearAttn(E,X′,x)F(x)=W0​x+∑i​ei​(xi′​x)=W0​x+LinearAttn(E,X′,x) This shows the dual form between linear layers optimized by gradient descent and linear attention.
+
+    Transformer Attention as Meta-Optimization
+
+For in-context learning (ICL), the attention in a Transformer can be approximated as: FICL(q)≈WV[X′;X](WK[X′;X])TqFICL​(q)≈WV​[X′;X](WK​[X′;X])Tq Where $W_V$ and $W_K$ are projection matrices, $X'$ represents demonstration tokens, and $X$ represents query tokens. This can be rewritten as: FICL(q)=WZSLq+∑i((WVxi′)⊗(WKxi′))qFICL​(q)=WZSL​q+∑i​((WV​xi′​)⊗(WK​xi′​))q Where $W_{\text{ZSL}} = W_VX(W_KX)^T$ represents the zero-shot learning parameters.
+
+    Meta-Gradients in In-Context Learning
+
+The researchers interpret $W_V X'$ as meta-gradients. These meta-gradients are used to compute the update matrix $\Delta W_{\text{ICL}}$: ΔWICL=∑i((WVxi′)⊗(WKxi′))ΔWICL​=∑i​((WV​xi′​)⊗(WK​xi′​)) This update is applied to the original model parameters through attention, effectively performing implicit fine-tuning.
+
+    Momentum-Based Attention
+
+Inspired by gradient descent with momentum, the researchers propose a momentum-based attention mechanism: MoAttn(V,K,qt)=Attn(V,K,qt)+∑i=1t−1ηt−iviMoAttn(V,K,qt​)=Attn(V,K,qt​)+∑i=1t−1​ηt−ivi​ Where $\eta$ is a scalar between 0 and 1, and $\mathbf{v}_i$ are attention value vectors. These mathematical formulations demonstrate how Transformer attention can be viewed as a form of gradient descent, and how in-context learning can be understood as implicit fine-tuning through the lens of meta-optimization. The momentum-based attention further extends this analogy, showing how optimization techniques can be applied to improve attention mechanisms.
+
+
+----
+
+
+
+
+
 
 The core idea can be expressed mathematically:
 

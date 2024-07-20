@@ -15,20 +15,16 @@ You quickly look over these examples, noticing:
 Drawing on your vast cooking knowledge and the patterns you've just observed, you're able to create a dish in the same style, even though you've never made it before.
 
 This is essentially how In-Context Learning works for large language models:
-1. The model, like our chef, has been pre-trained on a vast amount of data.
-2. When given a new task along with a few examples (the 'context'), it can quickly adapt.
-3. It performs the task without needing to be retrained, just like our chef creating a new dish on the spot.
-
-In the following sections, we'll explore the mechanics, types, and implications of In-Context Learning, drawing parallels to our culinary analogy to demystify this fascinating capability of modern AI.
-
-## Introduction to In-Context Learning
+1. The model, like our chef, has been pre-trained on a vast amount of data. ICL is enabled by the extensive pre-training of LLMs on vast language corpora, which provides them with strong priors and the flexibility to adapt to new tasks.
+2. When given a new task along with a few examples (the 'context'), it can quickly adapt. Models learn from examples provided in the input, like our chef studying recipe cards.
+3. It performs the task without needing to be retrained, just like our chef creating a new dish on the spot. This learning occurs during inference, not training - it's on-the-job learning for AI.
 
 In-Context Learning (ICL) is a fascinating phenomenon observed in large language models (LLMs) such as GPT-3 and GPT-4. It's like giving our chef a new cookbook right before preparing a meal.
 
-### Key Points:
-1. **Advanced LLM Capability**: ICL is a superpower of cutting-edge language models.
-2. **Context-Based Learning**: Models learn from examples provided in the input, like our chef studying recipe cards.
-3. **Real-Time Adaptation**: This learning occurs during inference, not training - it's on-the-job learning for AI!
+In the following sections, we'll explore the mechanics, types, and implications of In-Context Learning, drawing parallels to our culinary analogy to demystify this fascinating capability of modern AI.
+
+*Reference: [What In-Context Learning "Learns" In-Context: Disentangling Task Recognition and Task Learning](https://arxiv.org/abs/2305.09731)*
+
 
 ### The Fundamental Idea:
 Imagine whispering a few recipe tips to our chef just before they start cooking. Similarly, by providing a few task examples within the prompt, the model can:
@@ -43,9 +39,6 @@ ICL represents a significant leap in AI capabilities:
 - Models can tackle new tasks without extensive retraining
 - It opens up possibilities for more dynamic and responsive AI systems
 - This flexibility could lead to more versatile and user-friendly AI applications
-
-
-Let's reformat and enhance this section to match the style of the example:
 
 ## How In-Context Learning Works
 
@@ -147,10 +140,6 @@ Few-shot learning often provides the best balance between context length and tas
 ![Types of In-Context Learning](image.png)
 
 *Source: [Language Models are Few-Shot Learners](https://arxiv.org/abs/2005.14165)*
-
-
-
-Let's reformat and enhance this section to match the style of the example:
 
 ## Performance: Tasting the AI-Cooked Dishes
 

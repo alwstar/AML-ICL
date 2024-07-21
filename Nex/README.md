@@ -338,7 +338,7 @@ Where $\eta$ is a scalar between 0 and 1, and $\mathbf{v}_i$ are attention value
 
 This extension further demonstrates how optimization techniques can be applied to improve attention mechanisms.
 
-### 6. Interpretation
+### Interpretation
 
 - This derivation shows that attention computation in transformers is analogous to weight adjustments in a linear layer through gradient descent.
 - ICL can be viewed as an implicit form of optimization, similar to one step of gradient descent.

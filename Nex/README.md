@@ -139,6 +139,24 @@ Few-shot learning often provides the best balance between context length and tas
 
 ![Types of In-Context Learning](image.png)
 
+This image illustrates the performance of language models with different numbers of parameters (175B, 13B, and 1.3B) across zero-shot, one-shot, and few-shot learning scenarios. Here are the key observations:
+
+1. Model Size Impact: Larger models (more parameters) consistently outperform smaller models across all learning scenarios.
+
+2. Scaling with Examples: All models show improved performance as the number of examples in the context increases, demonstrating the effectiveness of few-shot learning.
+
+3. Natural Language Prompt vs. No Prompt: Models perform better with a natural language prompt (solid lines) compared to no prompt (dashed lines), especially in low-shot scenarios.
+
+4. Learning Curve: The performance improvement is steepest between zero-shot and one-shot, then continues to increase more gradually as more examples are added.
+
+5. Convergence: As the number of examples increases (moving towards the right), the performance gap between prompted and unprompted scenarios narrows, particularly for the larger models.
+
+6. Parameter Scaling: The 175B parameter model shows dramatically better performance than the 13B and 1.3B models, highlighting the importance of model scale.
+
+7. Few-shot Learning Power: Even with a small number of examples (1-10), there's a significant performance boost compared to zero-shot, especially for larger models.
+
+This graph effectively demonstrates the power of large language models in few-shot learning scenarios and the importance of both model size and carefully crafted prompts in achieving high performance across different tasks.
+
 *Reference: [Language Models are Few-Shot Learners](https://arxiv.org/abs/2005.14165)*
 
 ## Performance:

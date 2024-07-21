@@ -14,12 +14,12 @@ You quickly look over these examples, noticing:
 
 Drawing on your vast cooking knowledge and the patterns you've just observed, you're able to create a dish in the same style, even though you've never made it before.
 
-This is essentially how In-Context Learning works for large language models:
-1. The model, like our chef, has been pre-trained on a vast amount of data. ICL is enabled by the extensive pre-training of LLMs on vast language corpora, which provides them with strong priors and the flexibility to adapt to new tasks.
+This is essentially how In-Context Learning (ICL) works for large language models:
+1. The model, like our chef, has been pre-trained on a vast amount of data. ICL is enabled by the extensive pre-training of large language models (LLMs) on vast language corpora, which provides them with strong priors and the flexibility to adapt to new tasks.
 2. When given a new task along with a few examples (the 'context'), it can quickly adapt. Models learn from examples provided in the input, like our chef studying recipe cards.
 3. It performs the task without needing to be retrained, just like our chef creating a new dish on the spot. This learning occurs during inference, not training - it's on-the-job learning for AI.
 
-In-Context Learning (ICL) is a fascinating phenomenon observed in large language models (LLMs) such as GPT-3 and GPT-4. It's like giving our chef a new cookbook right before preparing a meal.
+In-Context Learning (ICL) is a fascinating phenomenon observed in LLMs such as GPT-3 and GPT-4. It's like giving our chef a new cookbook right before preparing a meal.
 
 In the following sections, we'll explore the mechanics, types, and implications of In-Context Learning, drawing parallels to our culinary analogy to demystify this fascinating capability of modern AI.
 
@@ -27,7 +27,7 @@ In the following sections, we'll explore the mechanics, types, and implications 
 
 
 ### The Fundamental Idea:
-Imagine whispering a few recipe tips to our chef just before they start cooking. Similarly, by providing a few task examples within the prompt, the model can:
+Imagine telling a few recipe tips to our chef just before they start cooking. Similarly, by providing a few task examples within the prompt, the model can:
 - Understand the task requirements
 - Recognize patterns and structures
 - Apply this understanding to new, similar inputs
@@ -145,7 +145,7 @@ Few-shot learning often provides the best balance between context length and tas
 
 ![Performance Comparison](image-1.png)
 
-This observation about In-Context Learning (ICL) is insightful and supported by the data shown in the image. Let's break down why this conclusion is valid:
+What we can observe about In-Context Learning (ICL) with different tasks and different experimental setup: No Demonstration Samples, Golden Samples, and Random Samples:
 
 1. Consistent improvement with demos: Across almost all models and tasks (both classification and multi-choice), providing demonstrations (demos) improves performance compared to "No Demos", regardless of whether the labels are gold (correct) or random.
 
@@ -211,6 +211,11 @@ While ICL has shown impressive results across various tasks, its performance can
 
 Recent research proposes a novel "Dual View" to explain how In-Context Learning (ICL) works in large language models. This perspective offers valuable insights into the mechanisms behind ICL and its relationship to traditional fine-tuning methods.
 
+For a more detailed explanation of the Dual View concept, please refer to the original paper:
+
+[Why Can GPT Learn In-Context? Language Models Implicitly Perform Gradient Descent as Meta-Optimizers](https://arxiv.org/abs/2202.12837)
+
+
 ## Key Concepts
 
 ### 1. ICL as Meta-Optimization
@@ -229,7 +234,7 @@ A crucial insight of this theory is that Transformer attention has a dual form a
 The Dual View draws an interesting parallel between ICL and traditional fine-tuning:
 - ICL produces meta-gradients via forward computation
 - Fine-tuning computes gradients via backpropagation
-- Both methods apply gradients to update the model, albeit in different ways
+- Both methods apply gradients to update the model, but in different ways
 
 This perspective frames ICL as a form of dynamic, implicit fine-tuning during inference.
 
@@ -332,12 +337,6 @@ The Dual View offers a theoretical framework for understanding ICL, potentially 
 2. Exploring ways to enhance ICL performance based on insights from the Dual View.
 3. Investigating the limitations of ICL through this theoretical lens and identifying scenarios where traditional fine-tuning might still be preferable.
 4. Studying the relationship between model size, pre-training data, and ICL effectiveness through the lens of meta-optimization.
-
-## References
-
-For a more detailed explanation of the Dual View concept, please refer to the original paper:
-
-[Why Can GPT Learn In-Context? Language Models Implicitly Perform Gradient Descent as Meta-Optimizers](https://arxiv.org/abs/2202.12837)
 
 ---
 
